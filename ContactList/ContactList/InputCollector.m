@@ -30,6 +30,7 @@
     NSLog(@"list - List all contacts\n");
     NSLog(@"show - find by id\n");
     NSLog(@"find - search by name\n");
+    NSLog(@"history - see last 3 entered commands");
     NSLog(@"quit - Exit Application\n");
     
       _promptString = [self inputForPrompt:_promptString];

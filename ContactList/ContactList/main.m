@@ -14,7 +14,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
      
-       
+        NSMutableArray* history = [[NSMutableArray alloc] init];
         
         InputCollector* collector = [[InputCollector alloc] init];
                
@@ -23,6 +23,25 @@ int main(int argc, const char * argv[]) {
         BOOL running = YES;
         
         while (running) {
+            
+        if([collector.promptString isEqual: @"history\n"]) {
+            
+            
+           
+            
+            NSString* last = history[0];
+            NSString* secondlast = history[1];
+            NSString* thirdlast = history[2];
+            
+            NSLog(@"Last: %@", last);
+            NSLog(@"Second Last: %@", secondlast);
+            NSLog(@"Third Last: %@", thirdlast);
+            
+            
+                [collector displayMenu];
+            
+            
+        }
             
         if([collector.promptString isEqual: @"quit\n"]) {
             NSLog(@"Goodbye");
@@ -78,14 +97,20 @@ int main(int argc, const char * argv[]) {
                         [newContact addPhoneNumber:phoneString];
                         
                         
-                        
-                    }
                 }
             }
             
+            [history addObject:@"new"];
+            
             [collector displayMenu];
+                
+            
+            
+        
             
         }  if([collector.promptString isEqual: @"list\n"]) {
+             [history addObject:@"list"];
+            
             [list displayList];
             [collector displayMenu];
             
@@ -99,6 +124,8 @@ int main(int argc, const char * argv[]) {
             NSString* showString = [NSString stringWithUTF8String:showChar];
             
             NSLog(@"You have found %@, \n", [list findContactById:showString]);
+            
+             [history addObject:@"show"];
             
             [collector displayMenu];
             
@@ -114,7 +141,10 @@ int main(int argc, const char * argv[]) {
             
            [list searchByString:findString];
             
+             [history addObject:@"find"];
+            
             [collector displayMenu];
+        }
         }
     
     }
