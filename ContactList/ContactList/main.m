@@ -77,7 +77,7 @@ int main(int argc, const char * argv[]) {
             
             NSString* findString = [NSString stringWithUTF8String:findChar];
             
-            [list findContactById:findString];
+           [list searchByString:findString];
         }
         }
     }

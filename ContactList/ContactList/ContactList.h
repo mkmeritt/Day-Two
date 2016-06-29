@@ -17,7 +17,7 @@
 -(void) generateIndexNumber;
 
 -(NSString*) findContactById: (NSString*) indexNumber;
--(void) searchByString: (NSString*) searchItem;
+-(NSString*) searchByString: (NSString*) searchItem;
 
 @property (nonatomic, retain) NSMutableArray* contacts;
 @property (nonatomic, retain) NSString* index;

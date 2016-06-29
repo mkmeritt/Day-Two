@@ -71,14 +71,20 @@
     return nil;
 }
 
--(void) searchByString:(NSString *)searchItem {
+-(NSString*) searchByString:(NSString *)searchItem {
+    
+    NSString* st;
     
     for(Contact *contacts in self.contacts) {
         if([contacts.name containsString:searchItem]) {
-           NSLog(@"%@: %@ \n", contacts.contactId, contacts.name);
+            
+            NSLog(@"You have found contact with id %@ and name %@ \n", contacts.contactId, contacts.name);
+            
+            return st;
         }
     }
     
+    return st;
 }
 
 @end
