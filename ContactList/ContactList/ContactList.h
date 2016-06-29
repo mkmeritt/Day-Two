@@ -18,6 +18,7 @@
 
 -(NSString*) findContactById: (NSString*) indexNumber;
 -(NSString*) searchByString: (NSString*) searchItem;
+-(BOOL) duplicateEntry: (NSString*) emailAddress;
 
 @property (nonatomic, retain) NSMutableArray* contacts;
 @property (nonatomic, retain) NSString* index;

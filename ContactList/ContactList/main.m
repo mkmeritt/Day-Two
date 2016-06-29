@@ -33,22 +33,27 @@ int main(int argc, const char * argv[]) {
             char nameChar[255];
             char emailChar[255];
             
+            printf("Enter Email: \n");
+            fgets(emailChar, 255, stdin);
+            
+            NSString* emailString = [NSString stringWithUTF8String:emailChar];
+            
             NSLog(@"New Contact\n");
             
             printf("Enter Name: \n");
             fgets(nameChar, 255, stdin);
             
             NSString* nameString = [NSString stringWithUTF8String:nameChar];
-            
-            printf("Enter Email: \n");
-            fgets(emailChar, 255, stdin);
-            
-            NSString* emailString = [NSString stringWithUTF8String:emailChar];
-            
+      
+            if([list duplicateEntry:emailString]) {
+                NSLog(@"Email address already added. Cannot create this contact. Try Again.\n");
+             
+            } else {
             Contact *newContact = [[Contact alloc] initWithNameAndEmail:nameString email:emailString];
             [list.contacts addObject:newContact];
             
             NSLog(@"Contact Added! \n");
+            }
             
             [collector displayMenu];
             
@@ -67,6 +72,8 @@ int main(int argc, const char * argv[]) {
             
             NSLog(@"You have found %@, \n", [list findContactById:showString]);
             
+            [collector displayMenu];
+            
             
         } if([collector.promptString isEqual:@"find\n"]) {
             
@@ -78,6 +85,8 @@ int main(int argc, const char * argv[]) {
             NSString* findString = [NSString stringWithUTF8String:findChar];
             
            [list searchByString:findString];
+            
+            [collector displayMenu];
         }
         }
     }

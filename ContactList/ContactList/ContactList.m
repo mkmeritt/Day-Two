@@ -87,4 +87,15 @@
     return st;
 }
 
+-(BOOL)duplicateEntry:(NSString *)emailAddress
+{
+    for(Contact *contacts in self.contacts) {
+        if([contacts.email isEqualToString:emailAddress]) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
 @end
