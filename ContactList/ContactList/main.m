@@ -44,6 +44,8 @@ int main(int argc, const char * argv[]) {
             fgets(nameChar, 255, stdin);
             
             NSString* nameString = [NSString stringWithUTF8String:nameChar];
+            
+          
       
             if([list duplicateEntry:emailString]) {
                 NSLog(@"Email address already added. Cannot create this contact. Try Again.\n");
@@ -53,6 +55,32 @@ int main(int argc, const char * argv[]) {
             [list.contacts addObject:newContact];
             
             NSLog(@"Contact Added! \n");
+                
+                NSLog(@"Add phone number? \n");
+                NSLog(@"y/n \n");
+                
+                char yChar[255];
+                
+                fgets(yChar, 255, stdin);
+                
+                NSString* yString = [NSString stringWithUTF8String:yChar];
+                
+                if([yString isEqualToString:@"y\n"]) {
+                
+                     NSLog(@"Enter phone number: \n");
+                        
+                        char phoneChar[255];
+                        
+                        fgets(phoneChar, 255, stdin);
+                        
+                        NSString* phoneString = [NSString stringWithUTF8String:phoneChar];
+                        
+                        [newContact addPhoneNumber:phoneString];
+                        
+                        
+                        
+                    }
+                }
             }
             
             [collector displayMenu];
@@ -88,7 +116,7 @@ int main(int argc, const char * argv[]) {
             
             [collector displayMenu];
         }
-        }
+    
     }
     return 0;
 }

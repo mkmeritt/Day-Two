@@ -14,8 +14,12 @@
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSString* email;
 @property (nonatomic, retain) NSString* contactId;
+@property (nonatomic, retain) NSMutableArray* phoneNumbers;
+
 @property (nonatomic, assign) BOOL idAdded;
 
 -(id) initWithNameAndEmail: (NSString*)Name email:(NSString*)Email;
+-(void) addPhoneNumber: (NSString*)phoneNumber;
+-(void) printPhoneNumbers;
 
 @end

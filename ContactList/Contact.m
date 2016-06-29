@@ -17,9 +17,23 @@
         _email = Email;
         _contactId = @"";
         _idAdded = NO;
+        
+        _phoneNumbers = [[NSMutableArray alloc] init];
     }
    
     return self;
+}
+
+-(void)addPhoneNumber:(NSString *)phoneNumber {
+    [_phoneNumbers addObject:phoneNumber];
+    
+    NSLog(@"Mobile Added: %@", phoneNumber);
+}
+
+-(void)printPhoneNumbers {
+    for (NSString* numbers in _phoneNumbers) {
+        NSLog(@" %@ /n", numbers);
+    }
 }
 
 @end
