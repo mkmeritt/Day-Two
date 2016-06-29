@@ -63,7 +63,21 @@ int main(int argc, const char * argv[]) {
             printf("Enter an index number: ");
             fgets(showChar, 255, stdin);
             
+            NSString* showString = [NSString stringWithUTF8String:showChar];
             
+            NSLog(@"You have found %@, \n", [list findContactById:showString]);
+            
+            
+        } if([collector.promptString isEqual:@"find\n"]) {
+            
+            char findChar[255];
+            
+            printf("Enter a search term: ");
+            fgets(findChar, 255, stdin);
+            
+            NSString* findString = [NSString stringWithUTF8String:findChar];
+            
+            [list findContactById:findString];
         }
         }
     }

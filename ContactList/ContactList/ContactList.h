@@ -7,15 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Contact.h"
 
-@interface ContactList : NSObject {
-    NSString* _indexNumber;
-}
+@interface ContactList : NSObject 
 
 -(id)init;
 -(void)displayList;
+-(void) addIndexNumber: (NSString*) indexNumber;
+-(void) generateIndexNumber;
+
+-(NSString*) findContactById: (NSString*) indexNumber;
+-(void) searchByString: (NSString*) searchItem;
 
 @property (nonatomic, retain) NSMutableArray* contacts;
-@property (nonatomic, retain) NSString* indexNumber;
+@property (nonatomic, retain) NSString* index;
+@property (nonatomic, retain) NSSet* indexList;
+
+
+
+
+
 
 @end

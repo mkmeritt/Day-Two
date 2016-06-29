@@ -15,7 +15,8 @@
     if (self = [super init]) {
         _name = Name;
         _email = Email;
-        _contactId = _contactId;
+        _contactId = @"";
+        _idAdded = NO;
     }
    
     return self;

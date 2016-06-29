@@ -8,16 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Contact : NSObject {
-    NSString* _name;
-    NSString* _email;
-    NSString* _contactId;
-    
-}
+@interface Contact : NSObject 
+ 
 
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSString* email;
 @property (nonatomic, retain) NSString* contactId;
+@property (nonatomic, assign) BOOL idAdded;
 
 -(id) initWithNameAndEmail: (NSString*)Name email:(NSString*)Email;
 
